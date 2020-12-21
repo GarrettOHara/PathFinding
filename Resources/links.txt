@@ -2,11 +2,12 @@ Medium article on A star Path Finding
 
 https://medium.com/@nicholas.w.swift/easy-a-star-pathfinding-7e6689c7f7b2
 
-Python GUI interfaces
 
-1. PyQT5
-2. Tkinker (i see a lot of this)
-3. Kivy
-4. wxPython
-5. Livbag
-6. PysimpleGUI
+PyGame vs GUI
+https://stackoverflow.com/questions/10668116/pygame-vs-tkinter#:~:text=First%2C%20tkinter%20is%20definitely%20not,easily%2C%20not%20to%20create%20GUIs.
+
+
+PyGame Documentation links
+
+1. https://devdocs.io/pygame/
+2. https://pygame.readthedocs.io/en/latest/1_intro/intro.html
