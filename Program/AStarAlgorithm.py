@@ -1,0 +1,2 @@
+class AStarAlgorithm:
+    print("Hello")

@@ -27,6 +27,5 @@ class Node:
         #self.heuristic = math.sqrt((endNode.xPos - currNode.xPos)**2 - (endNode.yPos - currNode.yPos)**2)
 
     #function that calculates currentCost (g) (distance from current node to start node)
-    def findCurrentCost(self, startNode, currentNode):
+    def findCurrentCost(self, startNode):
         print("Hello")
-    
