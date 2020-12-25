@@ -1,17 +1,21 @@
 from Node import Node
 class Driver:
-    #graph size
+    #initializing the graph
     size = 15
     graph = [size][size]
 
-    #populate graph with empty nodes
+    #populating the graph with open nodes (empty nodes)
     for x in range(len(graph)):
         for y in range(len(graph[0])):
             node = Node(x,y,"open")
 
-    #start and end node
-    startNode = Node(5,5,"start")
-    graph[5][5] = startNode
+    #manually setting the start and end nodes
+    startX = 5
+    startY = 5
+    startNode = Node(startX,startY,"start")
+    graph[startX][startY] = startNode
 
-    endNode = Node(10,10,"end")
-    graph[10][10] = endNode
+    endX = 10
+    endY = 10
+    endNode = Node(endX,endY,"end")
+    graph[endX][endY] = endNode
