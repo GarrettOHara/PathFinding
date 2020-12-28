@@ -9,7 +9,7 @@ class Driver:
         for y in range(len(graph[0])):
             node = Node(x,y,"open")
 
-    #manually setting the start and end nodes
+    #manually setting the start node and end node
     startX = 5
     startY = 5
     startNode = Node(startX,startY,"start")
