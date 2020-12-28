@@ -1,4 +1,6 @@
 from Node import Node
+from Graph import Graph
+from AStarAlgorithm import AStarAlgorithm
 class Driver:
     #initializing the graph
     size = 15
@@ -19,3 +21,10 @@ class Driver:
     endY = 10
     endNode = Node(endX,endY,"end")
     graph[endX][endY] = endNode
+
+    newGraph = Graph(graph)
+    newGraph.setStartNode(startNode)
+    newGraph.setEndNode(endNode)
+
+    algorithm = AStarAlgorithm()
+    algorithm.addStartNode(startNode)
