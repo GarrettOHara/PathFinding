@@ -29,12 +29,15 @@ class Node:
         xDifference = x2 - x1
         yDifference = y2 - y1
         self.heuristic = math.sqrt((int(math.pow(xDifference, 2))) + (int(math.pow(yDifference, 2))))
+        return self.heuristic
         #alternative calculation: self.heuristic = math.sqrt(((endNode.xPos - self.xPos)**2) - ((endNode.yPos - self.yPos)**2))
 
     #function that calculates g
     def findCurrentCost(self, startNode):
         self.currentCost = 0
+        return self.currentCost
 
     #function that calculates f
     def findTotalCost(self):
         self.totalCost = self.currentCost + self.heuristic
+        return self.totalCost
