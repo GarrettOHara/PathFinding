@@ -1,19 +1,23 @@
 from Node import Node
 class Graph:
-    graph = []
-    startNode = Node(-1,-1,"none")
-    endNode = Node(-1,-1,"none")
 
-    def __init__(self, nodeGraph):
-        self.graph = nodeGraph
+    def __init__(self, size):
+        self.graph = [size][size]
+        self.startNode = Node(-1,-1,"none")
+        self.endNode = Node(-1,-1,"none")
 
-    def setStartNode(self, start):
-        self.startNode.xPos = start.xPos
-        self.startNode.yPos = start.yPos
-        self.startNode.nodeType = start.nodeType
+    def populate(self, startX, startY, endX, endY):
+        for x in range(len(graph)):
+            for y in range(len(graph[0])):
+                if(x == startX and y == startY):
+                    temp = Node(x,y,"start")
+                    self.graph[x][y] = temp
+                    self.startNode = temp
+                else if(x == endX and y == endY):
+                    temp = Node(x,y,"end")
+                    self.graph[x][y] = temp
+                    self.endNode = temp
+                else:
+                    self.graph[x][y] = Node(x,y,"open")
 
-    def setEndNode(self, end):
-        self.endNode.xPos = end.xPos
-        self.endNode.yPos = end.yPos
-        self.endNode.nodeType = end.nodeType
-
+    #setters and getter

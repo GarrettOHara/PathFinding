@@ -2,29 +2,26 @@ from Node import Node
 from Graph import Graph
 from AStarAlgorithm import AStarAlgorithm
 class Driver:
-    #initializing the graph
-    size = 15
-    graph = [size][size]
 
-    #populating the graph with open nodes (empty nodes)
+    size = input("Enter the size of the graph: ")
+    startX = input("Enter the x value of the start node: ")
+    startY = input("Enter the y value of the start node: ")
+    endX = input("Enter the x value of the end node: ")
+    endY = input("Enter the y value of the end node: ")
+
+    #initializing the graph
+    newGraph = Graph(size)
+    newGraph.populate(startX, startY, endX, endY)
+
+    #populating the graph
     for x in range(len(graph)):
         for y in range(len(graph[0])):
-            node = Node(x,y,"open")
+            if(x == startX and y == startY):
+                graph[x][y] = Node(x,y,"start")
+            else if(x == endX and y == endY):
+                graph[x][y] = Node(x,y,"end")
+            else:
+                graph[x][y] = Node(x,y,"open")
 
-    #manually setting the start node and end node
-    startX = 5
-    startY = 5
-    startNode = Node(startX,startY,"start")
-    graph[startX][startY] = startNode
-
-    endX = 10
-    endY = 10
-    endNode = Node(endX,endY,"end")
-    graph[endX][endY] = endNode
-
-    newGraph = Graph(graph)
-    newGraph.setStartNode(startNode)
-    newGraph.setEndNode(endNode)
-
-    algorithm = AStarAlgorithm()
-    algorithm.addStartNode(startNode)
+    algorithm = AStarAlgorithm(newGraph)
+    algorithm.startAlgorithm()
