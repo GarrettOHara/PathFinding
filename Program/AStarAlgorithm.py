@@ -2,19 +2,16 @@ from Node import Node
 from Graph import Graph
 import sys
 class AStarAlgorithm:
-    openList = []
-    closedList = []
 
     def __init__(self, nodeGraph):
         self.graph = nodeGraph
+        self.openList = []
+        self.closedList = []
 
     def startAlgorithm(self):
+        self.openList.append(self.graph.getStartNode())
 
-        self.openList.append(self.graph.startNode)
-        self.openList[0].findHeuristic(self.graph.endNode)
-        self.openList[0].findCurrentCost(self.graph.startNode)
-        minValue = self.openList[0].findTotalCost()
+        minValue = self.openList[0].findTotalCost(self.graph.getStartNode(), self.graph.getEndNode())
         for i in range(len(self.openList)):
-            self.openList[i].findHeuristic(self.graph.endNode)
-            self.openList[i].findCurrentCost(self.graph.startNode)
-            minValue = min(minValue, self.openList[i].findTotalCost())
+            minValue = (min(minValue, self.openList[i].
+                        findTotalCost(self.graph.getStartNode(), self.graph.getEndNode())))

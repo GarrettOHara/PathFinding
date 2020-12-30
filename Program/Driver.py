@@ -13,15 +13,6 @@ class Driver:
     newGraph = Graph(size)
     newGraph.populate(startX, startY, endX, endY)
 
-    #populating the graph
-    for x in range(len(graph)):
-        for y in range(len(graph[0])):
-            if(x == startX and y == startY):
-                graph[x][y] = Node(x,y,"start")
-            else if(x == endX and y == endY):
-                graph[x][y] = Node(x,y,"end")
-            else:
-                graph[x][y] = Node(x,y,"open")
-
+    #start the a star algorithm
     algorithm = AStarAlgorithm(newGraph)
     algorithm.startAlgorithm()
