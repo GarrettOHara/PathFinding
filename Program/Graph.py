@@ -20,4 +20,4 @@ class Graph:
                 else:
                     self.graph[x][y] = Node(x,y,"open")
 
-    #setters and getters
+    #setters and getter
