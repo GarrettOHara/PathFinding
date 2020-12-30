@@ -1,19 +1,11 @@
 import math
 class Node:
-    #each Node has one of four types: open, obstacle, start, end
-    nodeType = "none"
-    #the x position of the Node on the graph
-    xPos = -1
-    #the y position of the Node on the graph
-    yPos = -1
-
     def __init__(self, x, y, nodeType):
         self.xPos = x
         self.yPos = y
         self.nodeType = nodeType
 
     #f = g + h
-
     #function that calculates h
     #"h" is the heuristic (estimated distance between the current node and the end node)
     def findHeuristic(self, endNode):

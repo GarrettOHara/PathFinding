@@ -2,7 +2,6 @@ from Node import Node
 from Graph import Graph
 import sys
 class AStarAlgorithm:
-
     def __init__(self, nodeGraph):
         self.graph = nodeGraph
         self.openList = []

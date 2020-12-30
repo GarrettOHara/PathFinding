@@ -1,6 +1,5 @@
 from Node import Node
 class Graph:
-
     def __init__(self, size):
         self.graph = [size][size]
         self.startNode = Node(-1,-1,"none")
