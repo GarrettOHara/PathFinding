@@ -1,5 +1,6 @@
 from Node import Node
 from Graph import Graph
+from queue import PriorityQueue
 import sys
 class AStarAlgorithm:
     def __init__(self, nodeGraph):
@@ -8,9 +9,10 @@ class AStarAlgorithm:
         self.closedList = []
 
     def startAlgorithm(self):
-        self.openList.append(self.graph.getStartNode())
+        self.openList.append(self.graph.startNode)
+        pq = PriorityQueue()
+        pq.put(self.graph.startNode)
 
-        minValue = self.openList[0].findTotalCost(self.graph.getStartNode(), self.graph.getEndNode())
+        minValue = self.openList[0].findTotalCost()
         for i in range(len(self.openList)):
-            minValue = (min(minValue, self.openList[i].
-                        findTotalCost(self.graph.getStartNode(), self.graph.getEndNode())))
+            minValue = (min(minValue, self.openList[i].findTotalCost()))
