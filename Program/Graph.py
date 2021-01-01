@@ -1,8 +1,8 @@
 from Node import Node
 class Graph:
     def __init__(self, size, startX, startY, endX, endY):
-        graphSize = int(size)
-        self.graph = [graphSize][graphSize]
+        size = int(size)
+        self.graph = [[Node(-1, -1, "none") for y in range(size)] for x in range(size)]
         self.startNode = Node(startX,startY,"start")
         self.endNode = Node(endX,endY,"end")
 

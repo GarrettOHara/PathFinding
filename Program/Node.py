@@ -8,8 +8,9 @@ class Node:
         self.heuristic = -1
         self.currentCost = -1
         self.totalCost = -1
-        self.startNode = Node(-1, -1, "none")
-        self.endNode = Node(-1, -1, "none")
+
+    startNode = Node(-1, -1, "none")
+    endNode = Node(-1, -1, "none")
     
     def setStartNode(self, node):
         self.startNode.xPos = node.xPos
