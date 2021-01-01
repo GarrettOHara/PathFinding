@@ -1,6 +1,5 @@
 import math
 class Node:
-
     def __init__(self, x, y, nodeType):
         self.xPos = x
         self.yPos = y
@@ -8,9 +7,6 @@ class Node:
         self.heuristic = -1
         self.currentCost = -1
         self.totalCost = -1
-
-    startNode = Node(-1, -1, "none")
-    endNode = Node(-1, -1, "none")
     
     def setStartNode(self, node):
         self.startNode.xPos = node.xPos
