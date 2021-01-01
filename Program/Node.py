@@ -1,5 +1,9 @@
 import math
 class Node:
+    pass
+
+    """def __init__(self):
+        self.startNode"""
 
     def __init__(self, x, y, nodeType):
         self.xPos = x
@@ -9,8 +13,8 @@ class Node:
         self.currentCost = -1
         self.totalCost = -1
 
-    startNode = Node(-1, -1, "none")
-    endNode = Node(-1, -1, "none")
+    #startNode = Node(-1, -1, "none")
+    #endNode = Node(-1, -1, "none")
     
     def setStartNode(self, node):
         self.startNode.xPos = node.xPos
@@ -53,3 +57,8 @@ class Node:
 
     def __lt__(self, other):
         return self.totalCost < other.totalCost
+
+
+
+Node.startNode = Node(-1,-1,"start")
+Node.endNode = Node(-1,-1,"end")
