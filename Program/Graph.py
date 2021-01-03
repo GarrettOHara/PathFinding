@@ -20,6 +20,23 @@ class Graph:
                     self.graph[x][y].setStartNode(self.startNode)
                     self.graph[x][y].setEndNode(self.endNode)
     
+    def getAdjacentNodes(self, node):
+        print("")
+        nodes = []
+        nodes.append(get((node.xPos), (node.yPos + 1)))
+        nodes.append(get((node.xPos + 1), (node.yPos + 1)))
+        nodes.append(get((node.xPos + 1), (node.yPos)))
+        nodes.append(get((node.xPos + 1), (node.yPos - 1)))
+        nodes.append(get((node.xPos), (node.yPos - 1)))
+        nodes.append(get((node.xPos - 1), (node.yPos - 1)))
+        nodes.append(get((node.xPos - 1), (node.yPos)))
+        nodes.append(get((node.xPos - 1), (node.yPos + 1)))
+        return nodes
+    
+    def get(self, x, y):
+        print("")
+        return self.graph[x][y]
+    
     def clear(self):
         for x in range(len(self.graph)):
             for y in range(len(self.graph[0])):

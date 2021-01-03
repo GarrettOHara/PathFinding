@@ -2,16 +2,11 @@ from Node import Node
 from Graph import Graph
 from AStarAlgorithm import AStarAlgorithm
 class Driver:
-    print("Enter the size of the graph: ")
-    size = input()
-    print("Enter the x value of the start node: ")
-    startX = input()
-    print("Enter the y value of the start node: ")
-    startY = input()
-    print("Enter the x value of the end node: ")
-    endX = input()
-    print("Enter the y value of the end node: ")
-    endY = input()
+    size = input("Enter the size of the graph: ")
+    startX = input("Enter the x value of the start node: ")
+    startY = input("Enter the y value of the start node: ")
+    endX = input("Enter the x value of the end node: ")
+    endY = input("Enter the y value of the end node: ")
 
     #initializing the graph
     newGraph = Graph(size, startX, startY, endX, endY)
