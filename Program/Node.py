@@ -1,6 +1,5 @@
 import math
 class Node:
-    pass
 
     """def __init__(self):
         self.startNode"""
@@ -57,8 +56,6 @@ class Node:
 
     def __lt__(self, other):
         return self.totalCost < other.totalCost
-
-
 
 Node.startNode = Node(-1,-1,"start")
 Node.endNode = Node(-1,-1,"end")
