@@ -23,14 +23,14 @@ class Graph:
     def getAdjacentNodes(self, node):
         print("")
         nodes = []
-        nodes.append(get((node.xPos), (node.yPos + 1)))
-        nodes.append(get((node.xPos + 1), (node.yPos + 1)))
-        nodes.append(get((node.xPos + 1), (node.yPos)))
-        nodes.append(get((node.xPos + 1), (node.yPos - 1)))
-        nodes.append(get((node.xPos), (node.yPos - 1)))
-        nodes.append(get((node.xPos - 1), (node.yPos - 1)))
-        nodes.append(get((node.xPos - 1), (node.yPos)))
-        nodes.append(get((node.xPos - 1), (node.yPos + 1)))
+        nodes.append(self.get((node.xPos), (node.yPos + 1)))
+        nodes.append(self.get((node.xPos + 1), (node.yPos + 1)))
+        nodes.append(self.get((node.xPos + 1), (node.yPos)))
+        nodes.append(self.get((node.xPos + 1), (node.yPos - 1)))
+        nodes.append(self.get((node.xPos), (node.yPos - 1)))
+        nodes.append(self.get((node.xPos - 1), (node.yPos - 1)))
+        nodes.append(self.get((node.xPos - 1), (node.yPos)))
+        nodes.append(self.get((node.xPos - 1), (node.yPos + 1)))
         return nodes
     
     def get(self, x, y):

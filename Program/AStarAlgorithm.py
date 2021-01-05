@@ -16,7 +16,7 @@ class AStarAlgorithm:
         self.openList.append(self.graph.startNode)
         pq = PriorityQueue()
         pq.put(self.graph.startNode)
-        while(not pq.empty()):
+        while(not (self.openList.count == 0)):
             #pop off the top element of the priority queue
             #create a new node, call it q, we generate all adjacent nodes
             #we loop thru each child and create the base cases
@@ -26,11 +26,12 @@ class AStarAlgorithm:
             qAdjacent = self.graph.getAdjacentNodes(q)
             for node in range(len(qAdjacent)):
                 if(node.nodeType == "end"):
-                    pq.queue.clear()
+                    self.openList.clear()
                     self.closedList.append(node)
                     break
                     #stop algorithm
-                elif((openList.contains(node)) or (closedList.contains(node))):
+                elif((self.openList.contains(node)) or \
+                     (self.closedList.contains(node))):
                     continue
                 else:
                     pq.put(node)
