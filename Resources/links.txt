@@ -11,3 +11,11 @@ PyGame Documentation links
 
 1. https://devdocs.io/pygame/
 2. https://pygame.readthedocs.io/en/latest/1_intro/intro.html
+
+
+
+Documentation
+
+PriorityQueue:
+https://docs.python.org/3/library/queue.html
+
