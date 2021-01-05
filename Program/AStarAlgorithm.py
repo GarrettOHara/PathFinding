@@ -24,16 +24,18 @@ class AStarAlgorithm:
             print("iterate")
             q = pq.get()
             qAdjacent = self.graph.getAdjacentNodes(q)
-            for node in range(len(qAdjacent)):
+            for node in qAdjacent:
                 if(node.nodeType == "end"):
                     self.openList.clear()
                     self.closedList.append(node)
                     break
                     #stop algorithm
-                elif((self.openList.contains(node)) or \
-                     (self.closedList.contains(node))):
+                elif(node in self.openList) or \
+                     (node in self.closedList):
+                    print("elif")
                     continue
                 else:
+                    print("else")
                     pq.put(node)
                     self.openList.append(node)
         print("made it here")

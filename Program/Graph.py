@@ -21,21 +21,26 @@ class Graph:
                     self.graph[x][y].setEndNode(self.endNode)
     
     def getAdjacentNodes(self, node):
-        print("")
+        print(" ")
         nodes = []
-        nodes.append(self.get((node.xPos), (node.yPos + 1)))
-        nodes.append(self.get((node.xPos + 1), (node.yPos + 1)))
-        nodes.append(self.get((node.xPos + 1), (node.yPos)))
-        nodes.append(self.get((node.xPos + 1), (node.yPos - 1)))
-        nodes.append(self.get((node.xPos), (node.yPos - 1)))
-        nodes.append(self.get((node.xPos - 1), (node.yPos - 1)))
-        nodes.append(self.get((node.xPos - 1), (node.yPos)))
-        nodes.append(self.get((node.xPos - 1), (node.yPos + 1)))
+        nodeX = int(node.xPos)
+        nodeY = int(node.yPos)
+        nodes.append(self.get((nodeX), (nodeY + 1)))
+        nodes.append(self.get((nodeX + 1), (nodeY + 1)))
+        nodes.append(self.get((nodeX + 1), (nodeY)))
+        nodes.append(self.get((nodeX + 1), (nodeY - 1)))
+        nodes.append(self.get((nodeX), (nodeY - 1)))
+        nodes.append(self.get((nodeX - 1), (nodeY - 1)))
+        nodes.append(self.get((nodeX - 1), (nodeY)))
+        nodes.append(self.get((nodeX - 1), (nodeY + 1)))
         return nodes
     
     def get(self, x, y):
-        print("")
-        return self.graph[x][y]
+        if(((x in range(len(self.graph))) and (y in range(len(self.graph[0]))))):
+            return self.graph[x][y]
+        else:
+            temp = Node(-1,-1,"closed")
+            return temp
     
     def clear(self):
         for x in range(len(self.graph)):
