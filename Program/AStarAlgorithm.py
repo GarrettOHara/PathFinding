@@ -16,13 +16,16 @@ class AStarAlgorithm:
         self.openList.append(self.graph.startNode)
         pq = PriorityQueue()
         pq.put(self.graph.startNode)
-        while(not (self.openList.count == 0)):
+        count = 0
+        while((not (self.openList.count == 0)) and (count < 20)):
             #pop off the top element of the priority queue
             #create a new node, call it q, we generate all adjacent nodes
             #we loop thru each child and create the base cases
                 #if this is the end, alrdy in openList/closedList
             print("iterate")
+            count = count + 1
             q = pq.get()
+            print(q)
             qAdjacent = self.graph.getAdjacentNodes(q)
             for node in qAdjacent:
                 if(node.nodeType == "end"):

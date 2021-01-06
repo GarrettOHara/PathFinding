@@ -56,6 +56,9 @@ class Node:
 
     def __lt__(self, other):
         return self.totalCost < other.totalCost
+    
+    def __str__(self):
+        return "X: " + str(self.xPos) + " Y: " + str(self.yPos) + " Type: " + str(self.nodeType)
 
 Node.startNode = Node(-1,-1,"start")
 Node.endNode = Node(-1,-1,"end")
