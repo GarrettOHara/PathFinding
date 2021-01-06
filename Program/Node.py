@@ -34,14 +34,14 @@ class Node:
     #f = g + h
     #function that calculates h
     #"h" is the heuristic (estimated distance between the current node and the end node)
-    def findHeuristic(self):
+    """def findHeuristic(self):
         x1 = self.xPos
         x2 = self.endNode.xPos
         y1 = self.yPos
         y2 = self.endNode.yPos
         xDifference = x2 - x1
         yDifference = y2 - y1
-        self.heuristic = math.sqrt((int(math.pow(xDifference, 2))) + (int(math.pow(yDifference, 2))))
+        self.heuristic = math.sqrt((int(math.pow(xDifference, 2))) + (int(math.pow(yDifference, 2))))"""
         #alternative calculation: self.heuristic = math.sqrt(((endNode.xPos - self.xPos)**2) - ((endNode.yPos - self.yPos)**2))
 
     #function that calculates g
