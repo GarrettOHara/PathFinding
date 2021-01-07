@@ -1,17 +1,14 @@
 from Node import Node
 from Graph import Graph
-from AStarAlgorithm import AStarAlgorithm
 class Driver:
-    size = input("Enter the size of the graph: ")
-    startX = input("Enter the x value of the start node: ")
-    startY = input("Enter the y value of the start node: ")
-    endX = input("Enter the x value of the end node: ")
-    endY = input("Enter the y value of the end node: ")
+    #gather input for parameters of the graph
+    size = int(input("Enter the size of the graph: "))
+    startX = int(input("Enter the x value of the start node: "))
+    startY = int(input("Enter the y value of the start node: "))
+    endX = int(input("Enter the x value of the end node: "))
+    endY = int(input("Enter the y value of the end node: "))
 
-    #initializing the graph
-    newGraph = Graph(size, startX, startY, endX, endY)
-    newGraph.populate()
-
-    #start the a star algorithm
-    algorithm = AStarAlgorithm(newGraph)
-    algorithm.startAlgorithm()
+    #initialize the graph
+    graph = Graph(size, startX, startY, endX, endY)
+    graph.displayGraph()
+    graph.findShortestPath()
