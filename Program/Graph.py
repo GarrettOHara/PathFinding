@@ -13,7 +13,7 @@ class Graph:
             for y in range(len(self.graph[x])):
                 print(self.graph[x][y],end=" ")
             print("")
-    
+
     def getAdj(self,node):
         adjNodes = []
         x = int(node.xPos)
@@ -34,7 +34,7 @@ class Graph:
             adjNodes.append(self.graph[x-1][y])
         if(self.inRange(x-1,y+1)):
             adjNodes.append(self.graph[x-1][y+1])
-        
+
         for node in adjNodes:
             print(node,end=" ")
         print("")
@@ -70,17 +70,17 @@ class Graph:
             closedList.append(minNode)
 
             if(minNode == self.endNode):
-<<<<<<< HEAD
+
                 path = []
                 current = minNode
                 while current is not None:
                     path.append(current.position)
                     current = current.parent
                 return path[::-1] # Return reversed path
-            #return closedList
-=======
-                return closedList
->>>>>>> 70c3027bca9d45f397626a0278a87c40304526e5
+                #return closedList
+
+
+
             
             adjNodes = self.getAdj(minNode)
 
