@@ -66,8 +66,13 @@ class Graph:
             print(minNode)
 
             if(minNode == self.endNode):
-                print(*closedList)
-                return closedList
+                path = []
+                current = minNode
+                while current is not None:
+                    path.append(current.position)
+                    current = current.parent
+                return path[::-1] # Return reversed path
+            #return closedList
             
             adjNodes = self.getAdj(minNode)
 
