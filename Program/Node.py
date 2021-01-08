@@ -8,7 +8,7 @@ class Node:
         self.g = 0
         self.f = 0
     
-    def __eq__(self, node):
+    def __eq__(self,node):
         if((self.xPos == node.xPos) and (self.yPos == node.yPos)):
             return True
         else:
