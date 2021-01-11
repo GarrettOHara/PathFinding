@@ -9,4 +9,5 @@ class Driver:
 
     graph = Graph(size,startX,startY,endX,endY)
     graph.displayGraph()
+    print("")
     graph.findShortestPath()
