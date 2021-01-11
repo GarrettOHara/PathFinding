@@ -97,5 +97,7 @@ class Graph:
                 for openNode in openList:
                     if((node == openNode) and (node.g > openNode.g)):
                         continue
+                    if(node.nodeType == "closed"):
+                        continue
                 
                 openList.append(node)
