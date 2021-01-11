@@ -7,11 +7,12 @@ class Graph:
         self.graph[endX][endY].nodeType = "end"
         self.startNode = self.graph[startX][startY]
         self.endNode = self.graph[endX][endY]
+        self.graph[5][5].nodeType = "closed"
     
     def displayGraph(self):
         for x in range(len(self.graph)):
             for y in range(len(self.graph[x])):
-                print(self.graph[x][y],end=" ")
+                print(self.graph[x][y]),
             print("")
 
     def getAdj(self,node):
@@ -36,7 +37,7 @@ class Graph:
             adjNodes.append(self.graph[x-1][y+1])
 
         for node in adjNodes:
-            print(node,end=" ")
+            print(node),
         print("")
 
         return adjNodes
@@ -55,9 +56,7 @@ class Graph:
         openList.append(self.startNode)
         count = 0
 
-        while(len(openList) > 0 and count < 20):
-
-            count = count + 1
+        while(len(openList) > 0):
 
             minNode = openList[0]
             minIndex = 0
@@ -70,19 +69,19 @@ class Graph:
             closedList.append(minNode)
 
             if(minNode == self.endNode):
-
-                path = []
-                current = minNode
-                while current is not None:
-                    path.append(current.position)
-                    current = current.parent
-                return path[::-1] # Return reversed path
-                #return closedList
+                print("Found the end node")
+                
+                for item in closedList:
+                    print(item)
+                return
+                    
 
             adjNodes = self.getAdj(minNode)
 
             for node in adjNodes:
-                
+                if node.nodeType == "closed":
+                    continue
+
                 for closedNode in closedList:
                     if(node == closedNode):
                         continue
@@ -93,8 +92,6 @@ class Graph:
 
                 for openNode in openList:
                     if((node == openNode) and (node.g > openNode.g)):
-                        continue
-                    if(node.nodeType == "closed"):
                         continue
                 
                 openList.append(node)
