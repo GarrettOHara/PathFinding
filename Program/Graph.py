@@ -37,7 +37,6 @@ class Graph:
 
         for node in adjNodes:
             print(node,end=" ")
-        
         print("")
 
         return adjNodes
@@ -63,14 +62,12 @@ class Graph:
             minNode = openList[0]
             minIndex = 0
             for i in range(len(openList)):
-                if(openList[i].f < minNode.f):
+                if(minNode.f > openList[i].f):
                     minNode = openList[i]
                     minIndex = i
             
             openList.pop(minIndex)
             closedList.append(minNode)
-
-            print(minNode)
 
             if(minNode == self.endNode):
 
@@ -82,9 +79,6 @@ class Graph:
                 return path[::-1] # Return reversed path
                 #return closedList
 
-
-
-            
             adjNodes = self.getAdj(minNode)
 
             for node in adjNodes:
