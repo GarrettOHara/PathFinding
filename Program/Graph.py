@@ -34,9 +34,10 @@ class Graph:
             adjNodes.append(self.graph[x-1][y])
         if(self.inRange(x-1,y+1)):
             adjNodes.append(self.graph[x-1][y+1])
-        
+
         for node in adjNodes:
             print(node,end=" ")
+        
         print("")
 
         return adjNodes
@@ -68,6 +69,8 @@ class Graph:
             
             openList.pop(minIndex)
             closedList.append(minNode)
+
+            print(minNode)
 
             if(minNode == self.endNode):
                 return closedList
