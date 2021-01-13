@@ -1,5 +1,6 @@
 from Node import Node
 import math
+
 class Graph:
     def __init__(self,size,startX,startY,endX,endY):
         self.graph = [[Node(x,y,"open") for y in range(size)] for x in range(size)]
