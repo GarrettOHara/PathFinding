@@ -45,13 +45,13 @@ class UserInterface:
         entry4.grid(row=4, column=5)
         entry5.grid(row=5, column=5)
 
-        printButton = Button(root, text="Print non dynamic size")
+        printButton = Button(root, text="Print")
         printButton.bind("<Button-1>", self.printSize)
         printButton.grid(row=6,column=10)
 
         displayBtn = Button(root, text="Display the graph")
         displayBtn.bind("<Button-1>", self.display)
-        displayBtn.grid(row=7,column=2)
+        displayBtn.grid(row=7,column=10)
 
     
 
