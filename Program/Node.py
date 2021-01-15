@@ -1,4 +1,9 @@
 class Node:
+    OPEN = "white"
+    CLOSED = "gray" #or black
+    FINAL_PATH = "red"
+    OPEN_CLOSED = "green"
+
     def __init__(self,x,y,nodeType):
         self.xPos = int(x)
         self.yPos = int(y)
@@ -15,4 +20,5 @@ class Node:
             return False
     
     def __str__(self):
-        return "(" + str(self.xPos) + "," + str(self.yPos) + "," + self.nodeType + ")"
+        return ("(" + str(self.xPos) + "," + str(self.yPos) 
+            + "," + self.nodeType + ")")
