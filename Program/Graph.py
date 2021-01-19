@@ -1,20 +1,66 @@
+from tkinter import *
 from Node import Node
 import math
 
 class Graph:
-    def __init__(self,size,startX,startY,endX,endY):
+    def __init__(self,master,size,startX,startY,endX,endY):
         self.graph = [[Node(x,y,"open") for y in range(size)] for x in range(size)]
         self.graph[startX][startY].nodeType = "start"
         self.graph[endX][endY].nodeType = "end"
         self.startNode = self.graph[startX][startY]
         self.endNode = self.graph[endX][endY]
         self.graph[5][5].nodeType = "closed"
+
+        self.displayGraph()
+
+        findPathBtn = Button(window, text="Find Path")
+        findPathBtn.bind("<Button-1>", self.findShortestPath)
+        #place location fo the button here
+
+    
     
     def displayGraph(self):
-        for x in range(len(self.graph)):
+        """for x in range(len(self.graph)):
             for y in range(len(self.graph[x])):
                 print(self.graph[x][y]),
-            print("")
+            print("")"""
+        for x in range(len(self.graph)):
+            for y in range(len(self.grah[0])):
+                if self.graph[x][y].nodeType == 'open':
+                    frame = tk.Frame(
+                        master=window,
+                        bg='white',
+                        relief=tk.RAISED,
+                        borderwidth=1
+                    )
+                    frame.grid(row=x,column=y)
+                elif self.graph[x][y].nodeType == 'start':
+                    frame = tk.Frame(
+                        master=window,
+                        bg='green',
+                        relief=tk.RAISED,
+                        borderwidth=1
+                    )
+                elif self.graph[x][y].nodeType == 'end':
+                    frame = tk.Frame(
+                        master=window,
+                        bg='red',
+                        relief=tk.RAISED,
+                        borderwidth=1
+                    )
+
+    """
+    What we still need to do:
+        - Get the graph displayed on the tkinter window
+        - Create command line arguments for the metaData of the graph obj
+        - Write an event handler that changes the nodes from open to closed on <Button-1>
+        - Troubleshoot our messups
+    """
+                
+
+
+    def pathButton(self, event):
+        self.findShortestPath
 
     def getAdj(self,node):
         adjNodes = []
@@ -96,3 +142,9 @@ class Graph:
                         continue
                 
                 openList.append(node)
+
+window = Tk()
+w = Graph(window)
+window.geometry('1000x1000')
+window.title('Tkinter Testing')
+window.mainloop()

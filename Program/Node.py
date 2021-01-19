@@ -22,3 +22,10 @@ class Node:
     def __str__(self):
         return ("(" + str(self.xPos) + "," + str(self.yPos) 
             + "," + self.nodeType + ")")
+    
+    def _switch(self):
+        print("Null")
+        #switch the node color based on keybaord input
+    
+    def draw(self):
+        print("Null")

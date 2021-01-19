@@ -61,7 +61,7 @@ class UserInterface:
     def CloseWindow(self):
         root.quit()
 
-    
+
 
 
 root = Tk()
