@@ -4,9 +4,6 @@ import math
 import sys
 
 class Graph:
-    #running is to handle thread issue
-    running = True
-
     def __init__(self,master,size,startX,startY,endX,endY):
         self.graph = [[Node(x,y,"open") for y in range(size)] for x in range(size)]
         self.graph[startX][startY].nodeType = "start"
@@ -38,24 +35,24 @@ class Graph:
                         borderwidth=1
                     )
                     frame.grid(row=x,column=y)
-                    """label = tk.Label(master = frame, text="   ")
-                    label.pack()"""
+                    label = tk.Label(master = frame, text="   ")
+                    label.pack()
                 elif self.graph[x][y].nodeType == 'start':
                     frame = tk.Frame(
                         master=window,
                         borderwidth=1
                     )
                     frame.grid(row=x,column=y)
-                    """label = tk.Label(master = frame, bg="green", text="   ")
-                    label.pack()"""
+                    label = tk.Label(master = frame, bg="green", text="   ")
+                    label.pack()
                 elif self.graph[x][y].nodeType == 'end':
                     frame = tk.Frame(
                         master=window,
                         borderwidth=1
                     )
                     frame.grid(row=x,column=y)
-                    """label = tk.Label(master = frame, bg="green", text="   ")
-                    label.pack()"""
+                    label = tk.Label(master = frame, bg="green", text="   ")
+                    label.pack()
 
     def pathButton(self, event):
         self.findShortestPath
@@ -101,7 +98,7 @@ class Graph:
         openList.append(self.startNode)
         count = 0
 
-        while(len(openList) > 0 and running):
+        while(len(openList) > 0):
 
             minNode = openList[0]
             minIndex = 0
@@ -114,7 +111,6 @@ class Graph:
             closedList.append(minNode)
 
             if(minNode == self.endNode):
-                
                 print("Found the end node")
                 
                 for item in closedList:
