@@ -1,10 +1,78 @@
 import tkinter as tk
-from Node import Node
+#from Node import Node
 import math
 import sys
 
+class Node:
+    OPEN = "white"
+    CLOSED = "gray" #or black
+    FINAL_PATH = "red"
+    OPEN_CLOSED = "green"
+
+    def __init__(self,x,y,nodeType):
+        self.xPos = int(x)
+        self.yPos = int(y)
+        self.nodeType = str(nodeType)
+        self.size = 50
+
+        self.h = 0
+        self.g = 0
+        self.f = 0
+    
+    def __eq__(self,node):
+        if((self.xPos == node.xPos) and (self.yPos == node.yPos)):
+            return True
+        else:
+            return False
+    
+    def __str__(self):
+        return ("(" + str(self.xPos) + "," + str(self.yPos) 
+            + "," + self.nodeType + ")")
+    
+    def _switch(self):
+        print("Null")
+        #switch the node color based on keybaord input
+    
+    def printType(self):
+        print("Null")        
+
+    def draw(self, x, y):
+        if self.nodeType == 'open':
+            frame = tk.Frame(
+                master=window,
+                bg="black",
+                borderwidth=1,
+                width = 40,
+                height = 40
+            )
+            frame.grid(row=x,column=y)
+            label = tk.Label(master = frame, text="     ")
+            label.pack()
+        elif self.nodeType == 'start':
+            frame = tk.Frame(
+                master=window,
+                borderwidth=1,
+                width = 40,
+                height = 40
+            )
+            frame.grid(row=x,column=y)
+            label = tk.Label(master = frame, bg="green", text="     ")
+            label.pack()
+        elif self.nodeType == 'end':
+            frame = tk.Frame(
+                master=window,
+                borderwidth=1,
+                width = 40,
+                height = 40
+            )
+            frame.grid(row=x,column=y)
+            label = tk.Label(master = frame, bg="red", text="     ")
+            label.pack()
+
+
 class Graph:
     def __init__(self,master,size,startX,startY,endX,endY):
+        self.cellSize = 50
         self.graph = [[Node(x,y,"open") for y in range(size)] for x in range(size)]
         self.graph[startX][startY].nodeType = "start"
         self.graph[endX][endY].nodeType = "end"
@@ -18,41 +86,41 @@ class Graph:
         findPathBtn.bind("<Button-1>", self.findShortestPath)
         findPathBtn.grid(row=size+1,column=size+1)
 
-        printBtn = tk.Button(window, text="Test")
-        printBtn.bind("<Button-1>", self.printSomething)
-        printBtn.grid(row=size+2,column=size+1)
+        #printBtn = tk.Button(window, text="Test")
+        window.bind("<Button-1>", self.handleMouseClick)
+        #printBtn.grid(row=size+2,column=size+1)
 
     def printSomething(self, event):
-        print("Testing worked")
+        print()
+    
+    def _eventCoords(self, event):
+        row = int(event.y)
+        col = int(event.x)
+        print(row), 
+        print(col)
+        return row, col
+
+    def handleMouseClick(self, event):
+        row, column = self._eventCoords(event)
+        self.graph[row][column].nodeType = "closed"
+        self.drawObsticle(row, column)
+    
+    def drawObsticle(self, row, col):
+        frame = tk.Frame(
+                master=window,
+                bg="black",
+                borderwidth=1,
+                width = 40,
+                height = 40
+            )
+        frame.grid(row=row,column=col)
+        label = tk.Label(master = frame, bg = "gray", text="     ")
+        label.pack()
 
     def displayGraph(self):
         for x in range(len(self.graph)):
             for y in range(len(self.graph[0])):
-                if self.graph[x][y].nodeType == 'open':
-                    frame = tk.Frame(
-                        master=window,
-                        bg="black",
-                        borderwidth=1
-                    )
-                    frame.grid(row=x,column=y)
-                    label = tk.Label(master = frame, text="   ")
-                    label.pack()
-                elif self.graph[x][y].nodeType == 'start':
-                    frame = tk.Frame(
-                        master=window,
-                        borderwidth=1
-                    )
-                    frame.grid(row=x,column=y)
-                    label = tk.Label(master = frame, bg="green", text="   ")
-                    label.pack()
-                elif self.graph[x][y].nodeType == 'end':
-                    frame = tk.Frame(
-                        master=window,
-                        borderwidth=1
-                    )
-                    frame.grid(row=x,column=y)
-                    label = tk.Label(master = frame, bg="green", text="   ")
-                    label.pack()
+                self.graph[x][y].draw(x, y)
 
     def pathButton(self, event):
         self.findShortestPath
