@@ -25,7 +25,9 @@ class Node:
 class NodeGUI(tk.Frame):
     BLOCK_COLOR = "black"
     CLEAR_COLOR = "white"
-    def __init__(self,master=None, **kwargs):
+    GROWTH_COLOR= "blue"
+    PATH_COLOR  = "red"
+    def __init__(self, master=None, **kwargs):
         super().__init__(master, **kwargs)
         self.config(borderwidth=1, bg=self.CLEAR_COLOR, relief=tk.RAISED)
         self.bind('<B1-Motion>', self.on_click)
@@ -34,6 +36,7 @@ class NodeGUI(tk.Frame):
 
     def on_click(self, event=None):
         self['bg'] = self.BLOCK_COLOR
+        print(self.graph[1][1].nodeType)
         """
         This will switch on and off
 
@@ -57,7 +60,7 @@ class GraphGUI(tk.Frame):
         self.rowconfigure(list(range(rows)), weight=1, uniform='cell', minsize=40)
         self.columnconfigure(list(range(columns)), weight=1, uniform='cell', minsize=40)
         
-        self.bind('<Return>', G.findShortestPath)
+        window.bind('<Return>', G.findShortestPath)
 
 """     def return_btn(event):
             print("you hit enter")
@@ -65,6 +68,7 @@ class GraphGUI(tk.Frame):
 """
 
 class Graph:
+    pass
     def __init__(self,master,size,startX,startY,endX,endY):
         self.graph = [[Node(x,y,"open") for y in range(size)] for x in range(size)]
         self.graph[startX][startY].nodeType = "start"
