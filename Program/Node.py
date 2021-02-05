@@ -2,7 +2,7 @@ class Node:
     OPEN = "white"
     CLOSED = "gray" #or black
     FINAL_PATH = "red"
-    OPEN_CLOSED = "green"
+    #OPEN_CLOSED = "green"
 
     def __init__(self,x,y,nodeType):
         self.xPos = int(x)

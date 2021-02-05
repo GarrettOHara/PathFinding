@@ -1,9 +1,11 @@
 from tkinter import *
 from Node import Node
 import math
+import sys
 
 class Graph:
-    def __init__(self,master,size,startX,startY,endX,endY):
+
+    def main(self,master,size,startX,startY,endX,endY):
         self.graph = [[Node(x,y,"open") for y in range(size)] for x in range(size)]
         self.graph[startX][startY].nodeType = "start"
         self.graph[endX][endY].nodeType = "end"
