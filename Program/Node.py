@@ -8,6 +8,7 @@ class Node:
         self.xPos = int(x)
         self.yPos = int(y)
         self.nodeType = str(nodeType)
+        self.size = 50
 
         self.h = 0
         self.g = 0
